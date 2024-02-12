@@ -3,4 +3,10 @@ mistake 1# -> GIVE UP TOO FAST
 
 Mistake 2# -> Try to use array methods in Objects
     Watch out for object and make sure you are applying the method to an array 
-    
+
+Mistake #3 => Not knowing the difference between 
+onChange={() => getValue} and onChange = {getValue}
+
+Mistake #4 -> not knowing how to use git 
+
+Mistake #5 -> Rely on Chatgpt
