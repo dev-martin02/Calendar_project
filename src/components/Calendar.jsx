@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Header from "./Header";
-import getDayFunction from "./body/functions/getDayFunctions";
+import getDayFunction from "./body/functions/GetDayFunctions";
 import getDateFunction from "./body/functions/GetDateFunction";
 import "../Calendar.css";
 

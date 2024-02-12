@@ -1,4 +1,4 @@
-export default function etDayFunction(input) {
+export default function GetDayFunction(input) {
   const days = [];
   let day = 1;
   const userMonth = new Date(input).getMonth();
