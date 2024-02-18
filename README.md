@@ -1,5 +1,5 @@
 # Calendar Project!!
-A simply calendar which allow you to add task to any day in the calendar!
+A simple calendar which allow you to add task to any day in the calendar!
 
 ## Future Updates
   - Task component, will have new feature called 'Temperature'
@@ -14,7 +14,7 @@ A simply calendar which allow you to add task to any day in the calendar!
 
   - Add a Digital Clock
   - 
-### Bugs
+## Bugs
 No bug dectedted at the moment, if you detected one please feel free to reach me out
 
 ##Project link 
