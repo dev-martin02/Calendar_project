@@ -1,13 +1,11 @@
-import { useState } from "react";
 import Header from "./Header";
 import getDayFunction from "./body/functions/GetDayFunctions";
 import getDateFunction from "./body/functions/GetDateFunction";
-import "../Calendar.css";
+import "../components/body/style/Calendar.css";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
 export default function Calendar() {
-  const [userDate, setUserDate] = useState("");
-  const [text, setText] = useState("");
-  const [visibility, setVisibility] = useState(false);
+  const navigate = useNavigate();
 
   const week = [
     { day: "Sunday", number: 0 },
@@ -19,10 +17,9 @@ export default function Calendar() {
     { day: "Saturday", number: 6 },
   ];
 
-  const date = getDateFunction(userDate);
-  const days = getDayFunction(userDate);
-  const month = new Date(text).getMonth();
-  console.log(month);
+  const date = getDateFunction();
+  const days = getDayFunction();
+  const month = new Date().getMonth();
 
   for (let weeks of week) {
     weeks.date = [];
@@ -33,24 +30,24 @@ export default function Calendar() {
     }
   }
 
-  const getValue = (e) => {
-    setText(e.target.value);
-  };
+  for (const firstDay of week) {
+    if (firstDay.date[0] == 1) {
+      for (const dayBefore of week) {
+        if (firstDay.number > dayBefore.number) {
+          dayBefore.date.unshift(0);
+        }
+      }
+    }
+  }
 
-  const handleOnClick = () => {
-    console.log(text);
-    setUserDate(text);
-    setVisibility(true);
-  };
+  function triggerAction(e) {
+    let day = e.target.textContent;
+    navigate(`/${day.toLowerCase()}`);
+  }
 
   return (
     <div id="calendar-container">
-      <input type="date" id="calendar" onChange={getValue} />
-      <button id="calendar" onClick={handleOnClick}>
-        Search
-      </button>
-
-      {visibility && (
+      {
         <div>
           <h1>
             <Header numberOfTheMonth={month} />
@@ -61,6 +58,7 @@ export default function Calendar() {
                 <li key={weekdays.day}>{weekdays.day}</li>
               ))}
             </ul>
+
             <ul className="days">
               {week.map((weekdays) => (
                 <li key={weekdays.day}>
@@ -70,7 +68,7 @@ export default function Calendar() {
                       .map((day) => (
                         <li key={day}>
                           {" "}
-                          <button>{day}</button>
+                          <button onClick={triggerAction}>{day}</button>
                         </li>
                       ))}
                   </ul>
@@ -79,7 +77,7 @@ export default function Calendar() {
             </ul>
           </div>
         </div>
-      )}
+      }
     </div>
   );
 }

@@ -10,3 +10,6 @@ onChange={() => getValue} and onChange = {getValue}
 Mistake #4 -> not knowing how to use git 
 
 Mistake #5 -> Rely on Chatgpt
+
+Mistake #6 -> useState update his content async
+    This can lead to console.log the wrong result
