@@ -1,5 +1,5 @@
 # Calendar Project!!
-A simple calendar which allow you to add task to any day in the calendar!
+A simple calendar which allow you to add task to any day !
 
 ## Future Updates
   - Task component, will have new feature called 'Temperature'
