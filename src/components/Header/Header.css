@@ -1,0 +1,12 @@
+#header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: medium;
+}
+
+#prev-next-mon {
+  display: flex;
+  width: 20%;
+  justify-content: space-between;
+}

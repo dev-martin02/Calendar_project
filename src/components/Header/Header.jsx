@@ -1,3 +1,5 @@
+import "./Header.css";
+
 export default function Header({ numberOfTheMonth }) {
   const nameOfTheMonth = [
     "January",
@@ -14,5 +16,13 @@ export default function Header({ numberOfTheMonth }) {
     "December",
   ];
 
-  return nameOfTheMonth[numberOfTheMonth];
+  return (
+    <div id="header-content">
+      <h1>{nameOfTheMonth[numberOfTheMonth]}</h1>
+      <div id="prev-next-mon">
+        <p>Previous</p>
+        <p>Next</p>
+      </div>
+    </div>
+  );
 }

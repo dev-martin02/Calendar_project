@@ -1,0 +1,82 @@
+/* app file */
+
+html {
+  height: 100%;
+  width: 90%;
+}
+body {
+  border: solid 2px red;
+  padding: 5%;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+}
+
+#root {
+  width: 100%;
+  border: solid 2px red;
+  padding: 5%;
+}
+/* app file ends */
+
+#container {
+  width: 90%;
+  border: solid 2px red;
+  padding: 5%;
+}
+
+#day-week-container {
+  display: flex;
+  flex-direction: column;
+}
+
+ul {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+#weekdays {
+  display: flex;
+
+  background-color: #ddd;
+}
+
+#weekdays li {
+  flex: 1;
+  list-style: none;
+  text-align: center;
+  color: #666;
+}
+
+#days li button {
+  list-style: none;
+  padding: 0;
+  width: 25px;
+  margin: 0;
+}
+
+#days {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 0;
+  background: #eee;
+  margin: 0;
+}
+
+#days li {
+  flex: 1;
+  list-style-type: none;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: #777;
+}
+
+li button {
+  width: 100%;
+}
