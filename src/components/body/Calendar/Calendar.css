@@ -42,7 +42,6 @@ ul {
 }
 #weekdays {
   display: flex;
-
   background-color: #ddd;
 }
 
@@ -69,7 +68,9 @@ ul {
 }
 
 #days li {
+  height: 100%;
   flex: 1;
+  flex-wrap: wrap;
   list-style-type: none;
   text-align: center;
   margin-bottom: 5px;

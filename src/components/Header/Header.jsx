@@ -1,6 +1,6 @@
 import "./Header.css";
 
-export default function Header({ numberOfTheMonth }) {
+export default function Header({ numberOfTheMonth, next, prev }) {
   const nameOfTheMonth = [
     "January",
     "February",
@@ -20,8 +20,8 @@ export default function Header({ numberOfTheMonth }) {
     <div id="header-content">
       <h1>{nameOfTheMonth[numberOfTheMonth]}</h1>
       <div id="prev-next-mon">
-        <p>Previous</p>
-        <p>Next</p>
+        <p onClick={prev}>Previous</p>
+        <p onClick={next}>Next</p>
       </div>
     </div>
   );
