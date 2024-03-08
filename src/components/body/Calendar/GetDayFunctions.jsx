@@ -1,7 +1,6 @@
 export default function GetDayFunction(userMonth) {
   const days = [];
   let day = 1;
-  // const userMonth = new Date().getMonth();
   const thisMonthDay = new Date(2024, userMonth, day);
 
   while (userMonth == thisMonthDay.getMonth()) {

@@ -8,7 +8,8 @@ import { useState } from "react";
 export default function Calendar() {
   const navigate = useNavigate();
 
-  const [currentMonth, setCurrentMonth] = useState(new Date().getMonth()); // Initial month is January (0 index)
+  const [initialMonth, setInitialMonth] = useState(new Date());
+  const [currentMonth, setCurrentMonth] = useState(initialMonth.getMonth()); // Initial month is January (0 index)
 
   const week = [
     { day: "Sunday", number: 0 },
@@ -50,14 +51,13 @@ export default function Calendar() {
   // add logic if month is less than 0 start in last year is the month is 12 and the user click next start in the next year
   const handleNextMonth = () => {
     // use this line of code, use it if is less than 0 or bigger than 11
-    let month = new Date().getMonth();
 
     setCurrentMonth((prevMonth) => prevMonth + 1);
     console.log(currentMonth);
   };
 
   const handlePrevMonth = () => {
-    setCurrentMonth((prevMonth) => prevMonth - 1);
+    setInitialMonth((userMonth) => userMonth.getMonth());
     console.log(currentMonth);
   };
 
