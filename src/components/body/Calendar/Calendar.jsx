@@ -4,12 +4,13 @@ import "./Calendar.css";
 import { useNavigate } from "react-router-dom";
 import Header from "../../Header/Header";
 import { useState } from "react";
+import { useEffect } from "react";
 
 export default function Calendar() {
   const navigate = useNavigate();
 
   const [initialMonth, setInitialMonth] = useState(new Date());
-  const [currentMonth, setCurrentMonth] = useState(initialMonth.getMonth()); // Initial month is January (0 index)
+  const [currentMonth, setCurrentMonth] = useState(initialMonth.getMonth());
 
   const week = [
     { day: "Sunday", number: 0 },
@@ -48,18 +49,33 @@ export default function Calendar() {
     navigate(`/${day.toLowerCase()}`);
   }
 
-  // add logic if month is less than 0 start in last year is the month is 12 and the user click next start in the next year
   const handleNextMonth = () => {
-    // use this line of code, use it if is less than 0 or bigger than 11
+    let nextMonth = initialMonth.getMonth() + 1;
+    let nextYear = initialMonth.getFullYear();
 
-    setCurrentMonth((prevMonth) => prevMonth + 1);
-    console.log(currentMonth);
+    if (nextMonth > 11) {
+      nextMonth = 0;
+      nextYear++;
+    }
+
+    setInitialMonth(new Date(nextYear, nextMonth));
   };
 
   const handlePrevMonth = () => {
-    setInitialMonth((userMonth) => userMonth.getMonth());
-    console.log(currentMonth);
+    let prevMonth = initialMonth.getMonth() - 1;
+    let prevYear = initialMonth.getFullYear();
+
+    if (prevMonth < 0) {
+      prevMonth = 11;
+      prevYear--;
+    }
+
+    setInitialMonth(new Date(prevYear, prevMonth));
   };
+
+  useEffect(() => {
+    setCurrentMonth(initialMonth.getMonth());
+  }, [initialMonth]);
 
   return (
     <div id="container">
