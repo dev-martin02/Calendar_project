@@ -1,6 +1,15 @@
+import { useEffect, useState } from "react";
 import "./Header.css";
 
-export default function Header({ numberOfTheMonth, next, prev }) {
+export default function Header({
+  numberOfTheMonth,
+  next,
+  prev,
+  currentYear,
+  resetDate,
+}) {
+  const [displayBtn, setDisplayBtn] = useState(false);
+
   const nameOfTheMonth = [
     "January",
     "February",
@@ -16,12 +25,26 @@ export default function Header({ numberOfTheMonth, next, prev }) {
     "December",
   ];
 
+  function compareMonth() {
+    const todayDate = new Date();
+    if (todayDate.getMonth() !== numberOfTheMonth) {
+      return setDisplayBtn(true);
+    }
+    return setDisplayBtn(false);
+  }
+
+  useEffect(() => {
+    compareMonth();
+  }, [numberOfTheMonth]);
+
   return (
     <div id="header-content">
       <h1>{nameOfTheMonth[numberOfTheMonth]}</h1>
+      <h2>{currentYear}</h2>
       <div id="prev-next-mon">
-        <p onClick={prev}>Previous</p>
-        <p onClick={next}>Next</p>
+        <button onClick={prev}>Previous</button>
+        <button onClick={next}>Next</button>
+        {displayBtn && <button onClick={resetDate}>Today's date</button>}
       </div>
     </div>
   );

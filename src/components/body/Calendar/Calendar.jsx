@@ -11,6 +11,7 @@ export default function Calendar() {
 
   const [initialMonth, setInitialMonth] = useState(new Date());
   const [currentMonth, setCurrentMonth] = useState(initialMonth.getMonth());
+  const [currentYear, setCurrentYear] = useState(initialMonth.getFullYear());
 
   const week = [
     { day: "Sunday", number: 0 },
@@ -73,8 +74,18 @@ export default function Calendar() {
     setInitialMonth(new Date(prevYear, prevMonth));
   };
 
+  const resetDate = () => {
+    const todayDate = new Date();
+    if (todayDate.getDate() !== initialMonth.getDate()) {
+      setInitialMonth(todayDate);
+    }
+
+    return todayDate;
+  };
+
   useEffect(() => {
     setCurrentMonth(initialMonth.getMonth());
+    setCurrentYear(initialMonth.getFullYear());
   }, [initialMonth]);
 
   return (
@@ -84,6 +95,8 @@ export default function Calendar() {
           numberOfTheMonth={currentMonth}
           next={handleNextMonth}
           prev={handlePrevMonth}
+          currentYear={currentYear}
+          resetDate={resetDate}
         />
       </h1>
       <div id="day-week-container">
