@@ -50,7 +50,7 @@ export default function Task() {
   }
 
   return (
-    <>
+    <div className="taskContainer">
       <h1>{headerText}</h1>
       <input type="text" onChange={getValue} value={userValue} />
       <button onClick={addTask}>Add</button>
@@ -62,6 +62,6 @@ export default function Task() {
           </>
         ))}
       </ul>
-    </>
+    </div>
   );
 }

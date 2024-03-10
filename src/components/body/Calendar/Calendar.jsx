@@ -9,9 +9,9 @@ import { useEffect } from "react";
 export default function Calendar() {
   const navigate = useNavigate();
 
-  const [initialMonth, setInitialMonth] = useState(new Date());
-  const [currentMonth, setCurrentMonth] = useState(initialMonth.getMonth());
-  const [currentYear, setCurrentYear] = useState(initialMonth.getFullYear());
+  const [initialDate, setInitialDate] = useState(new Date());
+  const [currentMonth, setCurrentMonth] = useState(initialDate.getMonth());
+  const [currentYear, setCurrentYear] = useState(initialDate.getFullYear());
 
   const week = [
     { day: "Sunday", number: 0 },
@@ -51,42 +51,42 @@ export default function Calendar() {
   }
 
   const handleNextMonth = () => {
-    let nextMonth = initialMonth.getMonth() + 1;
-    let nextYear = initialMonth.getFullYear();
+    let nextMonth = initialDate.getMonth() + 1;
+    let nextYear = initialDate.getFullYear();
 
     if (nextMonth > 11) {
       nextMonth = 0;
       nextYear++;
     }
 
-    setInitialMonth(new Date(nextYear, nextMonth));
+    setInitialDate(new Date(nextYear, nextMonth));
   };
 
   const handlePrevMonth = () => {
-    let prevMonth = initialMonth.getMonth() - 1;
-    let prevYear = initialMonth.getFullYear();
+    let prevMonth = initialDate.getMonth() - 1;
+    let prevYear = initialDate.getFullYear();
 
     if (prevMonth < 0) {
       prevMonth = 11;
       prevYear--;
     }
 
-    setInitialMonth(new Date(prevYear, prevMonth));
+    setInitialDate(new Date(prevYear, prevMonth));
   };
 
   const resetDate = () => {
     const todayDate = new Date();
-    if (todayDate.getDate() !== initialMonth.getDate()) {
-      setInitialMonth(todayDate);
+    if (todayDate.getDate() !== initialDate.getDate()) {
+      setInitialDate(todayDate);
     }
 
     return todayDate;
   };
 
   useEffect(() => {
-    setCurrentMonth(initialMonth.getMonth());
-    setCurrentYear(initialMonth.getFullYear());
-  }, [initialMonth]);
+    setCurrentMonth(initialDate.getMonth());
+    setCurrentYear(initialDate.getFullYear());
+  }, [initialDate]);
 
   return (
     <div id="container">
@@ -97,6 +97,7 @@ export default function Calendar() {
           prev={handlePrevMonth}
           currentYear={currentYear}
           resetDate={resetDate}
+          userDate={initialDate}
         />
       </h1>
       <div id="day-week-container">

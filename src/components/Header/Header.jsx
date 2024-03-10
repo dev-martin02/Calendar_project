@@ -7,6 +7,7 @@ export default function Header({
   prev,
   currentYear,
   resetDate,
+  userDate,
 }) {
   const [displayBtn, setDisplayBtn] = useState(false);
 
@@ -25,26 +26,29 @@ export default function Header({
     "December",
   ];
 
-  function compareMonth() {
+  function compareDate() {
     const todayDate = new Date();
-    if (todayDate.getMonth() !== numberOfTheMonth) {
+    if (todayDate.getDate() !== userDate.getDate()) {
       return setDisplayBtn(true);
+    } else {
+      return setDisplayBtn(false);
     }
-    return setDisplayBtn(false);
   }
 
   useEffect(() => {
-    compareMonth();
+    compareDate();
   }, [numberOfTheMonth]);
 
   return (
     <div id="header-content">
-      <h1>{nameOfTheMonth[numberOfTheMonth]}</h1>
-      <h2>{currentYear}</h2>
+      <div>
+        <h1>{nameOfTheMonth[numberOfTheMonth]}</h1>
+        <h2>{currentYear}</h2>
+      </div>
       <div id="prev-next-mon">
         <button onClick={prev}>Previous</button>
-        <button onClick={next}>Next</button>
         {displayBtn && <button onClick={resetDate}>Today's date</button>}
+        <button onClick={next}>Next</button>
       </div>
     </div>
   );
