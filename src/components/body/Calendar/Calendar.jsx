@@ -58,14 +58,12 @@ export default function Calendar() {
       nextMonth = 0;
       nextYear++;
     }
-
     setInitialDate(new Date(nextYear, nextMonth));
   };
 
   const handlePrevMonth = () => {
     let prevMonth = initialDate.getMonth() - 1;
     let prevYear = initialDate.getFullYear();
-
     if (prevMonth < 0) {
       prevMonth = 11;
       prevYear--;
@@ -88,6 +86,22 @@ export default function Calendar() {
     setCurrentYear(initialDate.getFullYear());
   }, [initialDate]);
 
+  const todayDate = () => {
+    const today = new Date().getDate();
+    let num;
+    week.map((data) => {
+      data.date.filter((x) => {
+        if (x === today) {
+          num = x;
+        }
+        console.log(num);
+      });
+    });
+
+    return num;
+  };
+
+  todayDate();
   return (
     <div id="container">
       <h1>
@@ -115,8 +129,15 @@ export default function Calendar() {
                     .sort((a, b) => a - b)
                     .map((day) => (
                       <li key={day}>
-                        {" "}
-                        <button onClick={triggerAction}>{day}</button>
+                        <button
+                          onClick={triggerAction}
+                          style={{
+                            backgroundColor:
+                              day === todayDate() ? "lightblue" : "none",
+                          }}
+                        >
+                          {day}
+                        </button>
                       </li>
                     ))}
                 </ul>
