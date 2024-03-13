@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "../../Header/Header";
 import { useState } from "react";
 import { useEffect } from "react";
+import ShowDate from "./ShowDate";
 
 export default function Calendar() {
   const navigate = useNavigate();
@@ -37,6 +38,7 @@ export default function Calendar() {
 
   week.map((firstDay) => {
     if (firstDay.date[0] == 1) {
+      // instead of 0, put the last day of the prev month
       for (const dayBefore of week) {
         if (firstDay.number > dayBefore.number) {
           dayBefore.date.unshift(0);
@@ -45,15 +47,14 @@ export default function Calendar() {
     }
   });
 
-  function triggerAction(e) {
+  const triggerAction = (e) => {
     let day = e.target.textContent;
     navigate(`/${day.toLowerCase()}`);
-  }
+  };
 
   const handleNextMonth = () => {
     let nextMonth = initialDate.getMonth() + 1;
     let nextYear = initialDate.getFullYear();
-
     if (nextMonth > 11) {
       nextMonth = 0;
       nextYear++;
@@ -68,7 +69,6 @@ export default function Calendar() {
       prevMonth = 11;
       prevYear--;
     }
-
     setInitialDate(new Date(prevYear, prevMonth));
   };
 
@@ -77,7 +77,6 @@ export default function Calendar() {
     if (todayDate.getDate() !== initialDate.getDate()) {
       setInitialDate(todayDate);
     }
-
     return todayDate;
   };
 
@@ -101,7 +100,6 @@ export default function Calendar() {
     return num;
   };
 
-  todayDate();
   return (
     <div id="container">
       <h1>
@@ -122,27 +120,11 @@ export default function Calendar() {
         </ul>
         <div>
           <ul id="days">
-            {week.map((weekdays) => (
-              <li key={weekdays.day}>
-                <ul>
-                  {weekdays.date
-                    .sort((a, b) => a - b)
-                    .map((day) => (
-                      <li key={day}>
-                        <button
-                          onClick={triggerAction}
-                          style={{
-                            backgroundColor:
-                              day === todayDate() ? "lightblue" : "none",
-                          }}
-                        >
-                          {day}
-                        </button>
-                      </li>
-                    ))}
-                </ul>
-              </li>
-            ))}
+            <ShowDate
+              week={week}
+              triggerAction={triggerAction}
+              todayDate={todayDate}
+            />
           </ul>
         </div>
       </div>
