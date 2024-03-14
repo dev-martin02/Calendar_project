@@ -30,9 +30,8 @@ export default function Header({
     const todayDate = new Date();
     if (todayDate.getDate() !== userDate.getDate()) {
       return setDisplayBtn(true);
-    } else {
-      return setDisplayBtn(false);
     }
+    return setDisplayBtn(false);
   }
 
   useEffect(() => {
