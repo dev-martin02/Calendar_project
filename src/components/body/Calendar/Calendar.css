@@ -2,7 +2,7 @@
 
 html {
   height: 100%;
-  width: 90%;
+  width: 100%;
 }
 body {
   padding: 5%;
@@ -10,7 +10,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 90%;
   height: 80%;
 }
 
@@ -25,64 +25,35 @@ body {
 /* app file ends */
 
 #container {
-  width: 50%;
-  height: 50%;
-  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
+  width: 100%;
+  height: 100%;
   border: red 2px solid;
   border-radius: 10px;
   min-width: fit-content;
 }
 
-#day-week-container {
+ul {
+  list-style: none;
+  padding: 0;
+}
+#day-week-container,
+#weekdays,
+#days {
   display: flex;
+}
+
+#day-week-container {
   flex-direction: column;
 }
 
-ul {
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
-}
-#weekdays {
-  display: flex;
-  background-color: #ddd;
-}
-
-#weekdays li {
-  flex: 1;
-  list-style: none;
-  text-align: center;
-  color: #666;
-}
-
-#days li button {
-  list-style: none;
-  padding: 0;
-  width: 25px;
-  margin: 0;
-}
-
+#weekdays,
 #days {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 10px 0;
-  background: #eee;
-  margin: 0;
+  justify-content: space-between;
 }
 
-#days li {
-  height: 100%;
-  flex: 1;
-  flex-wrap: wrap;
-  list-style-type: none;
-  text-align: center;
-  margin-bottom: 5px;
-  font-size: 12px;
-  color: #777;
-}
-
-li button {
+ul li button {
   width: 100%;
 }

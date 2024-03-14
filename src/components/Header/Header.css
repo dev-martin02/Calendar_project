@@ -5,6 +5,10 @@
   font-size: medium;
 }
 
+#month-year {
+  display: flex;
+  align-items: center;
+}
 #prev-next-mon {
   display: flex;
   width: 20%;

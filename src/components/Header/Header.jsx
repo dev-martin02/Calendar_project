@@ -40,7 +40,7 @@ export default function Header({
 
   return (
     <div id="header-content">
-      <div>
+      <div id="month-year">
         <h1>{nameOfTheMonth[numberOfTheMonth]}</h1>
         <h2>{currentYear}</h2>
       </div>
