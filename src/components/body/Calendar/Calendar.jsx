@@ -93,7 +93,6 @@ export default function Calendar() {
         if (x === today) {
           num = x;
         }
-        console.log(num);
       });
     });
 

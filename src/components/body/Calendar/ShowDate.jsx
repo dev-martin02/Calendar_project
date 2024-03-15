@@ -1,19 +1,32 @@
 export default function ShowDate({ week, triggerAction, todayDate }) {
-  console.log(week);
-  return week.map((weekdays) => (
-    <li key={weekdays.day}>
+  function removeZero(container) {
+    container.map(({ date }) => {
+      date.forEach((zero) => {
+        if (zero === 0) {
+          return <button style={{ backgroundColor: "black" }}>{zero}</button>;
+        }
+      });
+    });
+  }
+
+  removeZero(week);
+  return week.map(({ date, day }) => (
+    <li key={day} id="date-container">
       <ul>
-        {weekdays.date
+        {date
           .sort((a, b) => a - b)
-          .map((day) => (
-            <li key={day}>
+          .map((dateContent) => (
+            <li key={dateContent}>
               <button
                 onClick={triggerAction}
+                className={dateContent === 0 ? `zero` : null}
                 style={{
-                  backgroundColor: day === todayDate() ? "lightblue" : "none",
+                  backgroundColor:
+                    dateContent === todayDate() ? "lightblue" : "",
                 }}
+                id="date"
               >
-                {day}
+                {dateContent}
               </button>
             </li>
           ))}
