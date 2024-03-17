@@ -1,11 +1,11 @@
-import getDayFunction from "./GetDayFunctions";
-import getDateFunction from "./GetDateFunction";
+import getDayFunction from "./utils/GetDayFunctions";
+import getDateFunction from "./utils/GetDateFunction";
 import "./Calendar.css";
 import { useNavigate } from "react-router-dom";
-import Header from "../../Header/Header";
+import Header from "../Header/Header";
 import { useState } from "react";
 import { useEffect } from "react";
-import ShowDate from "./ShowDate";
+import ShowDate from "./utils/ShowDate";
 
 export default function Calendar() {
   const navigate = useNavigate();
