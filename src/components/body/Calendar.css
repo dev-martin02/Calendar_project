@@ -54,6 +54,10 @@ ul {
   justify-content: space-between;
 }
 
+#weekdays {
+  font-size: larger;
+}
+
 #date-container {
   width: 100%;
 }

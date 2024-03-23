@@ -38,7 +38,6 @@ export default function Calendar() {
 
   week.map((firstDay) => {
     if (firstDay.date[0] == 1) {
-      // instead of 0, put the last day of the prev month
       for (const dayBefore of week) {
         if (firstDay.number > dayBefore.number) {
           dayBefore.date.unshift(0);
