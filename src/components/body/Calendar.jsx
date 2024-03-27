@@ -1,11 +1,11 @@
-import getDayFunction from "./GetDayFunctions";
-import getDateFunction from "./GetDateFunction";
+import getDayFunction from "./utils/GetDayFunctions";
+import getDateFunction from "./utils/GetDateFunction";
 import "./Calendar.css";
 import { useNavigate } from "react-router-dom";
-import Header from "../../Header/Header";
+import Header from "../Header/Header";
 import { useState } from "react";
 import { useEffect } from "react";
-import ShowDate from "./ShowDate";
+import ShowDate from "./utils/ShowDate";
 
 export default function Calendar() {
   const navigate = useNavigate();
@@ -38,7 +38,6 @@ export default function Calendar() {
 
   week.map((firstDay) => {
     if (firstDay.date[0] == 1) {
-      // instead of 0, put the last day of the prev month
       for (const dayBefore of week) {
         if (firstDay.number > dayBefore.number) {
           dayBefore.date.unshift(0);
@@ -93,7 +92,6 @@ export default function Calendar() {
         if (x === today) {
           num = x;
         }
-        console.log(num);
       });
     });
 

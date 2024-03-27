@@ -1,15 +1,20 @@
 #header-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   font-size: medium;
 }
 
 #month-year {
+  background-color: #669bbc;
   display: flex;
+  padding: 0.2rem;
+  width: 28%;
+  border-radius: 5%;
   align-items: center;
+  justify-content: space-between;
 }
 #prev-next-mon {
+  margin-left: 50%;
   display: flex;
   width: 20%;
   justify-content: space-between;

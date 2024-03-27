@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import Calendar from "./components/body/Calendar/Calendar";
+import Calendar from "./components/body/Calendar";
 import Task from "./components/Task/Task";
 
 function App() {
