@@ -54,6 +54,12 @@ ul {
   justify-content: space-between;
 }
 
-ul li button {
+/* Change this line  */
+ul li,
+button {
   width: 100%;
+}
+
+ul li {
+  border-left: black 1px solid;
 }
