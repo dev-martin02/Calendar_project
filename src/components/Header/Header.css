@@ -14,7 +14,7 @@
   justify-content: space-around;
 }
 #prev-next-mon {
-  margin-left: 50%;
+  margin-left: auto; /* Align to the right */
   display: flex;
   width: 10%;
   justify-content: space-between;
