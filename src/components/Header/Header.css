@@ -8,14 +8,20 @@
   background-color: #669bbc;
   display: flex;
   padding: 0.2rem;
-  width: 28%;
-  border-radius: 5%;
+  min-width: 40%;
+  border-radius: 10px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 #prev-next-mon {
   margin-left: 50%;
   display: flex;
-  width: 20%;
+  width: 10%;
   justify-content: space-between;
+}
+
+@media screen and (max-width: 450px) {
+  #prev-next-mon {
+    margin-left: 0%;
+  }
 }
