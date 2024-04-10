@@ -74,7 +74,7 @@ export default function Calendar() {
   const resetDate = () => {
     const todayDate = new Date();
     if (todayDate.getDate() !== initialDate.getDate()) {
-      setInitialDate(todayDate);
+      return setInitialDate(todayDate);
     }
     return todayDate;
   };
@@ -94,7 +94,6 @@ export default function Calendar() {
         }
       });
     });
-
     return num;
   };
 
@@ -113,18 +112,20 @@ export default function Calendar() {
       <div id="day-week-container">
         <ul id="weekdays">
           {week.map((weekdays) => (
-            <li key={weekdays.day}>{weekdays.day}</li>
+            <li key={weekdays.day}>
+              {weekdays.day}
+              <div>
+                <ul id="days">
+                  <li id="date-container">
+                    {weekdays.date.map((x) => (
+                      <button>{x}</button>
+                    ))}
+                  </li>
+                </ul>
+              </div>
+            </li>
           ))}
         </ul>
-        <div>
-          <ul id="days">
-            <ShowDate
-              week={week}
-              triggerAction={triggerAction}
-              todayDate={todayDate}
-            />
-          </ul>
-        </div>
       </div>
     </div>
   );
