@@ -15,13 +15,13 @@ export default function Calendar() {
   const [currentYear, setCurrentYear] = useState(initialDate.getFullYear());
 
   const week = [
-    { day: "Sunday", number: 0 },
-    { day: "Monday", number: 1 },
-    { day: "Tuesday", number: 2 },
-    { day: "Wednesday", number: 3 },
-    { day: "Thursday", number: 4 },
-    { day: "Friday", number: 5 },
-    { day: "Saturday", number: 6 },
+    { day: "Sun", number: 0 },
+    { day: "Mon", number: 1 },
+    { day: "Tue", number: 2 },
+    { day: "Wed", number: 3 },
+    { day: "Thu", number: 4 },
+    { day: "Fri", number: 5 },
+    { day: "Sat", number: 6 },
   ];
 
   const date = getDateFunction(currentMonth);
@@ -98,7 +98,7 @@ export default function Calendar() {
   };
 
   return (
-    <div id="container">
+    <div id="calendarContainer">
       <h1>
         <Header
           numberOfTheMonth={currentMonth}
@@ -109,20 +109,19 @@ export default function Calendar() {
           userDate={initialDate}
         />
       </h1>
-      <div id="day-week-container">
-        <ul id="weekdays">
+      <div>
+        <ul id="weekAndDate">
           {week.map((weekdays) => (
             <li key={weekdays.day}>
               {weekdays.day}
-              <div>
-                <ul id="days">
-                  <li id="date-container">
-                    {weekdays.date.map((x) => (
-                      <button>{x}</button>
-                    ))}
-                  </li>
-                </ul>
-              </div>
+
+              <ul id="days">
+                <li id="dateContainer">
+                  {weekdays.date.map((x) => (
+                    <button>{x}</button>
+                  ))}
+                </li>
+              </ul>
             </li>
           ))}
         </ul>
