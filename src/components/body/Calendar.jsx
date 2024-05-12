@@ -7,6 +7,21 @@ import { useState } from "react";
 import { useEffect } from "react";
 import ShowDate from "./utils/ShowDate";
 
+/*
+    There is a bug on the date of previus year, they are not displaying in the correct order for exmaple December 12 was a Tuesday and in the project it says that it was a Thursday
+
+    To-DO 
+      - Improve structure of the code
+      - Improve UI of the web page
+      - Add Icons
+
+    What do you want to accomplish with this project?
+      - Functionality, display the rigth days in the rigth order 
+      - Simple nice looking Calendar
+      - Responsive design
+
+ */
+
 export default function Calendar() {
   const navigate = useNavigate();
 
@@ -76,7 +91,6 @@ export default function Calendar() {
     if (todayDate.getDate() !== initialDate.getDate()) {
       return setInitialDate(todayDate);
     }
-    return todayDate;
   };
 
   useEffect(() => {
@@ -99,29 +113,33 @@ export default function Calendar() {
 
   return (
     <div id="calendarContainer">
-      <h1>
-        <Header
-          numberOfTheMonth={currentMonth}
-          next={handleNextMonth}
-          prev={handlePrevMonth}
-          currentYear={currentYear}
-          resetDate={resetDate}
-          userDate={initialDate}
-        />
-      </h1>
+      <Header
+        numberOfTheMonth={currentMonth}
+        next={handleNextMonth}
+        prev={handlePrevMonth}
+        currentYear={currentYear}
+        resetDate={resetDate}
+        userDate={initialDate}
+      />
+
       <div>
         <ul id="weekAndDate">
           {week.map((weekdays) => (
             <li key={weekdays.day}>
               {weekdays.day}
 
-              <ul id="days">
+              <ShowDate
+                week={weekdays.date}
+                triggerAction={triggerAction}
+                todayDate={todayDate}
+              />
+              {/* <ul id="days">
                 <li id="dateContainer">
                   {weekdays.date.map((x) => (
                     <button>{x}</button>
                   ))}
                 </li>
-              </ul>
+              </ul> */}
             </li>
           ))}
         </ul>
