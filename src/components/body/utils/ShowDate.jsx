@@ -20,7 +20,8 @@ export default function ShowDate({ week, triggerAction, todayDate }) {
               onClick={triggerAction}
               className={dateContent === 0 ? `zero` : null}
               style={{
-                backgroundColor: dateContent === todayDate() ? "lightblue" : "",
+                backgroundColor:
+                  dateContent === todayDate() ? "transparent" : "",
               }}
               id="date"
             >

@@ -44,10 +44,15 @@ export default function Header({
         <h1>{nameOfTheMonth[numberOfTheMonth]}</h1>
         <h2>{currentYear}</h2>
       </div>
+
       <div id="prev-next-mon">
-        <button onClick={prev}>Previous</button>
+        <button onClick={prev} className="arrow">
+          {"<"}
+        </button>
         {displayBtn && <button onClick={resetDate}>Today's date</button>}
-        <button onClick={next}>Next</button>
+        <button onClick={next} className="arrow">
+          {">"}
+        </button>
       </div>
     </div>
   );

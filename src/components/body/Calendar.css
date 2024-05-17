@@ -18,7 +18,10 @@ body {
 #calendarContainer {
   display: flex;
   flex-direction: column;
-  width: 100%; /* Replace 800px with your desired width */
+  width: 100%;
+  padding: 1%;
+  border: solid black 1px;
+  border-radius: 1%;
 }
 
 #weekAndDate {
@@ -34,3 +37,9 @@ body {
 #dateContainer div {
   padding: 50%;
 }
+
+.zero {
+  visibility: hidden;
+}
+
+/* When is in the desktop the calendarContainer Should only occupy 50% of the page and be in the middle */

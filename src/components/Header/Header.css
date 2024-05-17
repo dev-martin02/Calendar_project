@@ -2,8 +2,10 @@
   display: flex;
   text-align: center;
   align-items: center;
-  border: solid purple 2px;
   justify-content: space-between;
+  border-bottom: solid 2px black;
+  margin-bottom: 1%;
+  padding: 2%;
 }
 
 #month-year {
@@ -11,3 +13,21 @@
   width: 40%;
   border-radius: 10px;
 }
+
+#prev-next-mon {
+  display: flex;
+}
+
+.arrow {
+  font-size: larger;
+  color: white;
+  padding: 2% 4%;
+  border: none;
+  border-radius: 15%;
+  background-color: black;
+}
+
+/* 
+  Don't make the text "Today" vanish always let him his space 
+
+*/
