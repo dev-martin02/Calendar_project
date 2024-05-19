@@ -5,41 +5,74 @@
 html,
 body {
   width: 100%;
-
   height: 100%;
+}
+#root {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-#root {
-  min-width: 90%;
+  width: 100%;
+  height: 100%;
 }
 
 #calendarContainer {
   display: flex;
   flex-direction: column;
-  width: 100%;
   padding: 1%;
   border: solid black 1px;
   border-radius: 1%;
 }
 
-#weekAndDate {
+.weekAndDate {
   display: flex;
   list-style: none;
-  justify-content: space-around;
+  /* justify-content: space-around; */
+  width: 100%;
+  gap: 1;
 }
-#dateContainer {
+
+.dateContainer {
   display: flex;
   flex-direction: column;
 }
 
-#dateContainer div {
-  padding: 50%;
+.days {
+  text-align: left;
+  /* width: 18rem;
+  height: 60px; */
 }
 
 .zero {
   visibility: hidden;
 }
 
-/* When is in the desktop the calendarContainer Should only occupy 50% of the page and be in the middle */
+/* When on desktop, the calendarContainer should only occupy 50% of the page and be in the middle */
+@media screen and (min-width: 768px) {
+  /* Typically 768px is used for tablets and above */
+  #calendarContainer {
+    color: white;
+    width: 88%;
+    height: 66%;
+    max-width: 1400px;
+    min-height: 740px;
+    margin: 0 auto;
+    background-color: #333;
+  }
+
+  ul,
+  li {
+    width: 100%;
+    height: 94%;
+  }
+
+  .dateContainer button {
+    min-height: fit-content;
+    display: flex;
+    padding-left: 2%;
+    margin: 1%;
+    height: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: gray;
+  }
+}

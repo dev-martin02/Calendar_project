@@ -123,7 +123,7 @@ export default function Calendar() {
       />
 
       <div>
-        <ul id="weekAndDate">
+        <ul className="weekAndDate">
           {week.map((weekdays) => (
             <li key={weekdays.day}>
               {weekdays.day}

@@ -11,19 +11,17 @@ export default function ShowDate({ week, triggerAction, todayDate }) {
 
   // removeZero(week);
   return (
-    <ul id="days">
+    <ul className="days">
       {week
         .sort((a, b) => a - b)
         .map((dateContent) => (
-          <li key={dateContent} id="dateContainer">
+          <li key={dateContent} className="dateContainer">
             <button
               onClick={triggerAction}
-              className={dateContent === 0 ? `zero` : null}
+              className={"days" && dateContent === 0 ? "zero" : null}
               style={{
-                backgroundColor:
-                  dateContent === todayDate() ? "transparent" : "",
+                color: dateContent === todayDate() ? "white" : "",
               }}
-              id="date"
             >
               {dateContent}
             </button>
