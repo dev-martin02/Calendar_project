@@ -52,7 +52,11 @@ export default function Header({
         <button onClick={prev} className="arrow">
           {"<"}
         </button>
-        {<button onClick={resetDate}>Today's date</button>}
+        {
+          <button onClick={resetDate} id="todayBtn">
+            Today's date
+          </button>
+        }
         <button onClick={next} className="arrow">
           {">"}
         </button>

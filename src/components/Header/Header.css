@@ -16,6 +16,12 @@
   display: flex;
 }
 
+#todayBtn {
+  background-color: transparent;
+  border: none;
+  font-weight: 700;
+}
+
 .arrow {
   font-size: larger;
   color: white;
@@ -26,6 +32,7 @@
 }
 
 /* 
-  Don't make the text "Today" vanish always let him his space 
+
+  Change the today button background, Modify the header make it responsive  and replace the arrow for an arrow icon
 
 */
