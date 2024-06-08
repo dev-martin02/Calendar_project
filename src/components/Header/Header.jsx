@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Header.css";
+import rightArrow from "../../assets/rightArrow.svg";
+import leftArrow from "../../assets/leftArrow.svg";
 
 export default function Header({
   numberOfTheMonth,
@@ -44,13 +46,9 @@ export default function Header({
         <h1>{`${nameOfTheMonth[numberOfTheMonth]} ${currentYear}`}</h1>
         <h2></h2>
       </div>
-      <div>
-        <h3>Month</h3>
-      </div>
-
       <div id="prev-next-mon">
         <button onClick={prev} className="arrow">
-          {"<"}
+          <img src={`${leftArrow}`} alt="" />
         </button>
         {
           <button onClick={resetDate} id="todayBtn">
@@ -58,7 +56,7 @@ export default function Header({
           </button>
         }
         <button onClick={next} className="arrow">
-          {">"}
+          <img src={`${rightArrow}`} alt="" />
         </button>
       </div>
     </div>
